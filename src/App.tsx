@@ -1,11 +1,8 @@
-import React from 'react';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 function App() {
-  return (
-    <div className="App">
-    </div>
-  );
+  return <div className="App">你好，快去做高保真（</div>;
 }
 
 export default App;
