@@ -1,0 +1,17 @@
+.imgs {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  img {
+    width: 300px;
+    height: 575px;
+    object-fit: cover;
+  }
+  img:first-child {
+    height: 470px;
+  }
+  img:last-child {
+    height: 470px;
+  }
+}

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import back1 from "@background/自主创建-模板选择.png";
-import back2 from "@background/自主创建-色盘.png";
-import back3 from "@background/自主创建-智能配色.png";
-import back4 from "@background/自主创建-纹样绘制.png";
-import back5 from "@background/自主创建-AI优化.png";
+import back1 from "@background/自主创建-模板选择.webp";
+import back2 from "@background/自主创建-色盘.webp";
+import back3 from "@background/自主创建-智能配色.webp";
+import back4 from "@background/自主创建-纹样绘制.webp";
+import back5 from "@background/自主创建-AI优化.webp";
 
 function App(props: { changePage: (num: number, mode?: number) => void }) {
   const [page, setPage] = useState<number>(0);

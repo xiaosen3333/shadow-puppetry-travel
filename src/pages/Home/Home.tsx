@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import back1 from "@background/封面.png";
-import back2 from "@background/人物制作.png";
-import back3 from "@background/历史作品.png";
+import back1 from "@background/封面.webp";
+import back2 from "@background/人物制作.webp";
+import back3 from "@background/历史作品.webp";
+import py1 from "@image/py1.png";
+import py2 from "@image/py2.png";
+import py3 from "@image/py3.png";
+import py4 from "@image/py4.png";
+import styles from "./Home.module.scss";
+import { Carousel } from "@arco-design/web-react";
 function App(props: {
   changePage: (num: number, mode?: number) => void;
   pageNum: number;
@@ -125,6 +131,12 @@ function Page2(props: {
 
 function Page3(props: { changePage: (num: number) => void }) {
   const [index, setIndex] = useState(1);
+  const [imgs, setImgs] = useState([py1, py2, py3, py4]);
+  function changeImgs(forward: boolean) {
+    if (forward) {
+    } else {
+    }
+  }
   return (
     <div>
       <img style={{ width: "100%", height: "100%" }} src={back3} alt="" />
@@ -164,6 +176,25 @@ function Page3(props: { changePage: (num: number) => void }) {
         }}
         onClick={() => setIndex(index + 1)}
       ></div>
+      <div
+        style={{
+          position: "absolute",
+          top: 307,
+          width: 1346,
+          height: 600,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          left: 100,
+        }}
+      >
+        <div className={styles.imgs}>
+          <img src={imgs[index - 1]} alt="" />
+          <img src={imgs[index]} alt="" />
+          <img src={imgs[index + 1]} alt="" />
+          <img src={imgs[index + 2]} alt="" />
+        </div>
+      </div>
     </div>
   );
 }

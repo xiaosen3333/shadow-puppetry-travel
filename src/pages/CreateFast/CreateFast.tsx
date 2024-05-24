@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import back1 from "@background/快捷创建-图生图.png";
-import back2 from "@background/快捷创建-文生图制.png";
+import back1 from "@background/快捷创建-图生图.webp";
+import back2 from "@background/快捷创建-文生图制.webp";
 function App(props: { changePage: (num: number, mode?: number) => void }) {
   const [page, setPage] = useState<number>(0);
   return (
