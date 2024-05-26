@@ -41,7 +41,7 @@
 
 .slider {
   position: absolute;
-  width: 240px;
+  width: 240px !important;
   top: 816px;
   left: 309px;
   :global {
