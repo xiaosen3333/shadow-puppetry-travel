@@ -230,7 +230,7 @@ function Page2(props: {
           }}
         ></Slider>
       </div>
-      <div className={styles.rainbowcircle}></div>
+      {/* <div className={styles.rainbowcircle}></div> */}
     </div>
   );
 }
