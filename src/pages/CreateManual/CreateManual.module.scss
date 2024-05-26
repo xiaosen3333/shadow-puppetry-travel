@@ -1,0 +1,116 @@
+.arrow {
+  :global {
+    .arco-carousel-arrow-left {
+      width: 90px;
+      height: 141px;
+      top: 260px;
+      left: 30px;
+      background-color: transparent;
+    }
+    .arco-carousel-arrow-right {
+      width: 90px;
+      height: 141px;
+      top: 260px;
+      left: 1405px;
+      background-color: transparent;
+    }
+    .arco-carousel-arrow-left,
+    .arco-carousel-arrow-right {
+      svg {
+        display: none;
+      }
+    }
+    .arco-carousel-arrow-left:hover,
+    .arco-carousel-arrow-right:hover {
+      background-color: transparent;
+    }
+  }
+}
+.pen {
+  position: absolute;
+  width: 95px;
+  top: 679px;
+  left: 332px;
+}
+.eraser {
+  position: absolute;
+  width: 100px;
+  top: 740px;
+  left: 396px;
+}
+
+.slider {
+  position: absolute;
+  width: 240px;
+  top: 816px;
+  left: 309px;
+  :global {
+    .arco-slider-road::before {
+      background-color: rgb(243, 230, 206);
+      height: 14px;
+      border-radius: 16px;
+    }
+    .arco-slider-bar {
+      height: 14px;
+      border-radius: 16px;
+      background-color: rgb(166, 137, 95);
+    }
+    .arco-slider-button::after {
+      width: 20px;
+      height: 20px;
+      border: none;
+      background: rgb(160, 131, 89);
+      position: relative;
+      top: -4px;
+    }
+  }
+}
+.slider1 {
+  @extend .slider;
+}
+.slider2 {
+  @extend .slider;
+  top: 854px;
+}
+.rainbowcircle {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: absolute;
+  z-index: 100;
+  margin: 50px auto;
+  display: block;
+}
+
+.rainbowcircle::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    red,
+    red 15%,
+    orange 25%,
+    yellow 40%,
+    green 60%,
+    blue 80%,
+    indigo 90%,
+    violet
+  );
+  z-index: -1;
+}
+
+.rainbowcircle::after {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  border-radius: 50%;
+  background: white;
+  z-index: -1;
+}

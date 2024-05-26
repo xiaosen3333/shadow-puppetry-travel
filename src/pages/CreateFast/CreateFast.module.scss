@@ -1,31 +1,135 @@
-.imgs {
+.upload {
+  position: absolute;
+  width: 380px;
+  height: 550px;
+  top: 309px;
+  left: 152px;
   display: flex;
-  //   flex-direction: row;
-  //   justify-content: center;
-  width: 90%;
-  height: 650px;
-  align-items: flex-end;
-  overflow: hidden;
+  justify-content: center;
+  align-items: center;
   img {
-    position: absolute;
-    width: 300px;
-    height: 575px;
+    aspect-ratio: 3/4;
     object-fit: cover;
-    transition: 1s ease;
+    width: 360px;
   }
-  img:first-child {
-    left: 0px;
-    height: 470px;
+}
+.chooseimg {
+  width: 389px;
+  height: 650px;
+  object-fit: cover;
+  position: absolute;
+  top: 296px;
+  left: 634px;
+}
+.inputs {
+  position: absolute;
+  top: 366px;
+  left: 172px;
+  height: 550px;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  textarea {
+    font-size: 30px;
+    border: none;
+    height: 180px;
+    width: 330px;
+    background-color: transparent;
+    resize: none;
   }
-  img:nth-child(2) {
-    left: 350px;
+  textarea:nth-child(2) {
+    margin-top: 100px;
   }
-  img:nth-child(3) {
-    left: 680px;
+}
+.chooseback {
+  position: absolute;
+  width: 128.64px;
+}
+.results {
+  img {
+    z-index: 10;
+    width: 128.64px;
+    height: 195px;
+    object-fit: cover;
+    position: absolute;
   }
-  img:last-child {
-    left: 1000px;
-    height: 470px;
-    transition: 0.5s ease;
+}
+.createbtn {
+  position: absolute;
+  width: 244px;
+  height: 89.32px;
+  top: 897px;
+
+  left: 219px;
+  cursor: pointer;
+}
+
+:global {
+  .reactEasyCrop_Container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    user-select: none;
+    touch-action: none;
+    cursor: move;
+  }
+
+  .reactEasyCrop_Image,
+  .reactEasyCrop_Video {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    will-change: transform; /* this improves performances and prevent painting issues on iOS Chrome */
+  }
+
+  .reactEasyCrop_CropArea {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    box-shadow: 0 0 0 9999em;
+    color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+  }
+
+  .reactEasyCrop_CropAreaRound {
+    border-radius: 50%;
+  }
+
+  .reactEasyCrop_CropAreaGrid::before {
+    content: " ";
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    top: 0;
+    bottom: 0;
+    left: 33.33%;
+    right: 33.33%;
+    border-top: 0;
+    border-bottom: 0;
+  }
+
+  .reactEasyCrop_CropAreaGrid::after {
+    content: " ";
+    box-sizing: border-box;
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    top: 33.33%;
+    bottom: 33.33%;
+    left: 0;
+    right: 0;
+    border-left: 0;
+    border-right: 0;
   }
 }

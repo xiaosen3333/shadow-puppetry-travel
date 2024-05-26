@@ -5,9 +5,10 @@ import Home from "./pages/Home/Home";
 import Game from "./pages/Game/Game";
 import CreateFast from "./pages/CreateFast/CreateFast";
 import CreateManual from "./pages/CreateManual/CreateManual";
+import "@arco-design/web-react/dist/css/arco.css";
 
 function App() {
-  const [page, setPage] = useState<number>(2);
+  const [page, setPage] = useState<number>(3);
   const [pageNum, setPageNum] = useState<number>(0);
   return (
     <div className="App">

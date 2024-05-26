@@ -2,10 +2,10 @@ import React, { useRef, useState } from "react";
 import back1 from "@background/封面.webp";
 import back2 from "@background/人物制作.webp";
 import back3 from "@background/历史作品.webp";
-import py1 from "@image/py1.png";
-import py2 from "@image/py2.png";
-import py3 from "@image/py3.png";
-import py4 from "@image/py4.png";
+import py1 from "@image/py1.webp";
+import py2 from "@image/py2.webp";
+import py3 from "@image/py3.webp";
+import py4 from "@image/py4.webp";
 import styles from "./Home.module.scss";
 import { CSSProperties } from "react";
 function App(props: {
