@@ -7,7 +7,7 @@ import CreateFast from "./pages/CreateFast/CreateFast";
 import CreateManual from "./pages/CreateManual/CreateManual";
 
 function App() {
-  const [page, setPage] = useState<number>(0);
+  const [page, setPage] = useState<number>(2);
   const [pageNum, setPageNum] = useState<number>(0);
   return (
     <div className="App">
