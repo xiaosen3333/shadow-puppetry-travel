@@ -16,7 +16,6 @@ import oldwomen from "@image/oldwomen.webp";
 import { CarouselHandle } from "@arco-design/web-react/es/Carousel/interface";
 import pen from "@image/pen.webp";
 import eraser from "@image/eraser.webp";
-import circle from "@taroify/core/circle";
 let template = 0;
 function App(props: { changePage: (num: number, mode?: number) => void }) {
   const [page, setPage] = useState<number>(1);
