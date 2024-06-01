@@ -114,3 +114,65 @@
   background: white;
   z-index: -1;
 }
+
+.colorpicker {
+  position: absolute;
+  top: 300px;
+  left: 258px;
+  width: 363px;
+  .color {
+    position: absolute;
+    top: -10px;
+    left: 321px;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid rgb(99, 66, 48);
+  }
+}
+.colorcards {
+  position: absolute;
+  top: 274px;
+  left: 145px;
+  height: 407px;
+  width: 56px;
+  // border: 1px black solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  .colorcard {
+    width: 52px;
+    height: 52px;
+    border: 2px solid rgb(99, 66, 48);
+    border-radius: 8px;
+    &:nth-child(1) {
+      background-color: rgb(255, 127, 0);
+    }
+    &:nth-child(2) {
+      background-color: rgb(119, 193, 164);
+    }
+    &:nth-child(3) {
+      background-color: rgb(193, 147, 95);
+    }
+    &:nth-child(4) {
+      background-color: rgb(65, 95, 119);
+    }
+    &:nth-child(5) {
+      background-color: rgb(195, 223, 200);
+    }
+    &:nth-child(6) {
+      background-color: rgb(0, 134, 190);
+    }
+    &:nth-child(7) {
+      background-color: rgb(205, 141, 216);
+    }
+  }
+}
+
+.drawingboard {
+  position: absolute;
+  top: 282px;
+  left: 778px;
+  height: 657px;
+  width: 650px;
+}

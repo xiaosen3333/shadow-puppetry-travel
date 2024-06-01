@@ -1,21 +1,49 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import back1 from "@background/自主创建-模板选择.webp";
 import back2 from "@background/自主创建-色盘.webp";
 import back3 from "@background/自主创建-智能配色.webp";
 import back4 from "@background/自主创建-纹样绘制.webp";
 import back5 from "@background/自主创建-AI优化.webp";
+import { ReactSketchCanvas } from "react-sketch-canvas";
 import { Carousel, Slider } from "@arco-design/web-react";
 import py1 from "@image/py1.webp";
 import py2 from "@image/py2.webp";
 import py3 from "@image/py3.webp";
 import py4 from "@image/py4.webp";
 import kid from "@image/kid.webp";
+import human from "@image/human.webp";
 import women from "@image/women.webp";
 import styles from "./CreateManual.module.scss";
 import oldwomen from "@image/oldwomen.webp";
 import { CarouselHandle } from "@arco-design/web-react/es/Carousel/interface";
 import pen from "@image/pen.webp";
 import eraser from "@image/eraser.webp";
+
+import {
+  Sketch,
+  Material,
+  Colorful,
+  Compact,
+  Circle,
+  Wheel,
+  Block,
+  Github,
+  Chrome,
+  hsvaToHex,
+} from "@uiw/react-color";
+import {
+  Alpha,
+  Hue,
+  ShadeSlider,
+  Saturation,
+  hsvaToHslaString,
+} from "@uiw/react-color";
+import {
+  EditableInput,
+  EditableInputRGBA,
+  EditableInputHSLA,
+} from "@uiw/react-color";
+
 let template = 0;
 function App(props: { changePage: (num: number, mode?: number) => void }) {
   const [page, setPage] = useState<number>(1);
@@ -131,16 +159,61 @@ function Page2(props: {
 }) {
   const [radio, setRadio] = useState(0);
   const [alphaValue, setAlphaValue] = useState(50);
-  const [sizeValue, setSizeValue] = useState(50);
+  const [sizeValue, setSizeValue] = useState(20);
+  const [hsva, setHsva] = useState({ h: 214, s: 43, v: 90, a: 1 });
+
   return (
     <div className="App">
       <img style={{ width: "100%", height: "100%" }} src={back2} alt="" />
-
+      <div className={styles.colorpicker}>
+        <Fragment>
+          <Wheel
+            color={hsva}
+            width={363}
+            height={363}
+            onChange={(color) => setHsva({ ...hsva, ...color.hsva })}
+          />
+          {/* <ShadeSlider
+            hsva={hsva}
+            style={{ width: 210, marginTop: 20 }}
+            onChange={(newShade) => {
+              setHsva({ ...hsva, ...newShade });
+            }}
+          /> */}
+          <div
+            className={styles.color}
+            style={{
+              background: hsvaToHex(hsva),
+            }}
+          ></div>
+        </Fragment>
+      </div>
+      <div className={styles.colorcards}>
+        <div className={styles.colorcard}></div>
+        <div className={styles.colorcard}></div>
+        <div className={styles.colorcard}></div>
+        <div className={styles.colorcard}></div>
+        <div className={styles.colorcard}></div>
+        <div className={styles.colorcard}></div>
+        <div className={styles.colorcard}></div>
+      </div>
+      <div className={styles.drawingboard}>
+        <ReactSketchCanvas
+          ref={(reactSketchCanvas) => {
+            reactSketchCanvas?.eraseMode(radio === 1);
+          }}
+          strokeColor={hsvaToHex(hsva)}
+          eraserWidth={sizeValue}
+          strokeWidth={sizeValue}
+          canvasColor="transparent"
+          style={{ border: "none" }}
+          backgroundImage={human}
+        />
+      </div>
       <div
         style={{
           width: 280,
           height: 68,
-          // border: "black 1px solid",
           position: "absolute",
           top: 159,
           left: 154,
@@ -219,6 +292,7 @@ function Page2(props: {
           className={styles.slider1}
           onChange={(value) => {
             setAlphaValue(value as number);
+            setHsva({ ...hsva, a: (value as number) / 100 });
           }}
         ></Slider>
         <Slider
