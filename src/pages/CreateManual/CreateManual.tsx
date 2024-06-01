@@ -46,7 +46,7 @@ import {
 
 let template = 0;
 function App(props: { changePage: (num: number, mode?: number) => void }) {
-  const [page, setPage] = useState<number>(1);
+  const [page, setPage] = useState<number>(0);
   return (
     <div className="App">
       {page === 0 && (
