@@ -176,3 +176,181 @@
   height: 657px;
   width: 650px;
 }
+
+.colorserieses {
+  width: 581px;
+  height: 442.59px;
+  position: absolute;
+  top: 356px;
+  left: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  .colorseries {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    img {
+      width: 172.12px;
+    }
+    .colors {
+      width: 393.16px;
+      height: 34.83px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      div {
+        width: 61.16px;
+        height: 34.83px;
+        border: 2px solid rgb(99, 66, 48);
+        border-radius: 4px;
+      }
+    }
+    .colors1 {
+      @extend .colors;
+      div {
+        &:nth-child(1) {
+          background: rgb(65, 95, 119);
+        }
+        &:nth-child(2) {
+          background-color: rgb(220, 39, 35);
+        }
+        &:nth-child(3) {
+          background-color: rgb(210, 51, 83);
+        }
+        &:nth-child(4) {
+          background-color: rgb(90, 55, 51);
+        }
+        &:nth-child(5) {
+          background-color: rgb(237, 221, 221);
+        }
+      }
+    }
+    .colors2 {
+      @extend .colors;
+      div {
+        &:nth-child(1) {
+          background: rgb(193, 147, 95);
+        }
+        &:nth-child(2) {
+          background-color: rgb(197, 98, 58);
+        }
+        &:nth-child(3) {
+          background-color: rgb(196, 110, 83);
+        }
+        &:nth-child(4) {
+          background-color: rgb(233, 171, 60);
+        }
+        &:nth-child(5) {
+          background-color: rgb(194, 149, 126);
+        }
+      }
+    }
+    .colors3 {
+      @extend .colors;
+      div {
+        &:nth-child(1) {
+          background: rgb(143, 118, 77);
+        }
+        &:nth-child(2) {
+          background-color: rgb(144, 161, 91);
+        }
+        &:nth-child(3) {
+          background-color: rgb(72, 91, 95);
+        }
+        &:nth-child(4) {
+          background-color: rgb(228, 192, 0);
+        }
+        &:nth-child(5) {
+          background-color: rgb(0, 134, 190);
+        }
+      }
+    }
+    .colors4 {
+      @extend .colors;
+      div {
+        &:nth-child(1) {
+          background: rgb(173, 211, 162);
+        }
+        &:nth-child(2) {
+          background-color: rgb(119, 193, 164);
+        }
+        &:nth-child(3) {
+          background-color: rgb(49, 59, 84);
+        }
+        &:nth-child(4) {
+          background-color: rgb(112, 114, 138);
+        }
+        &:nth-child(5) {
+          background-color: rgb(28, 37, 44);
+        }
+      }
+    }
+    .colors5 {
+      @extend .colors;
+      div {
+        &:nth-child(1) {
+          background: rgb(247, 248, 243);
+        }
+        &:nth-child(2) {
+          background-color: rgb(195, 223, 200);
+        }
+        &:nth-child(3) {
+          background-color: rgb(227, 237, 228);
+        }
+        &:nth-child(4) {
+          background-color: rgb(245, 241, 229);
+        }
+        &:nth-child(5) {
+          background-color: rgb(249, 246, 237);
+        }
+      }
+    }
+  }
+}
+
+.huas {
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  width: 440px;
+  height: 408.62px;
+  top: 282px;
+  left: 154px;
+
+  img {
+    margin: auto;
+    width: 122.62px;
+    height: 122.62px;
+  }
+}
+
+.imgresults {
+  position: absolute;
+  top: 280px;
+  left: 837px;
+  display: flex;
+  flex-wrap: wrap;
+  height: 462px;
+  width: 666px;
+  img {
+    z-index: 10;
+    height: 191px;
+    width: 222px;
+    object-fit: contain;
+  }
+}
+.truth {
+  position: absolute;
+  top: 258px;
+  left: 208px;
+  width: 424px;
+}
+.backforimg {
+  position: absolute;
+  z-index: 2;
+  width: 177px;
+}
