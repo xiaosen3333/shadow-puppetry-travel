@@ -8,7 +8,7 @@ import CreateManual from "./pages/CreateManual/CreateManual";
 import "@arco-design/web-react/dist/css/arco.css";
 
 function App() {
-  const [page, setPage] = useState<number>(0);
+  const [page, setPage] = useState<number>(3);
   const [pageNum, setPageNum] = useState<number>(0);
   return (
     <div className="App">

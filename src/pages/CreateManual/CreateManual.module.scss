@@ -171,12 +171,30 @@
 
 .drawingboard {
   position: absolute;
+  z-index: 10;
   top: 282px;
   left: 778px;
   height: 657px;
   width: 650px;
 }
 
+.xiangao {
+  position: absolute;
+  width: 329px;
+}
+.xiangaoo {
+  position: absolute;
+  height: 604px;
+  top: 313px;
+  left: 929px;
+  object-fit: cover;
+}
+.xiangaooo {
+  position: absolute;
+  height: 604px;
+
+  object-fit: cover;
+}
 .colorserieses {
   width: 581px;
   height: 442.59px;

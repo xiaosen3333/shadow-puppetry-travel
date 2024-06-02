@@ -5,12 +5,17 @@ import back3 from "@background/自主创建-智能配色.webp";
 import back4 from "@background/自主创建-纹样绘制.webp";
 import back5 from "@background/自主创建-AI优化.webp";
 import { ReactSketchCanvas } from "react-sketch-canvas";
-import { Carousel, Slider } from "@arco-design/web-react";
+import { Carousel, Slider, Spin } from "@arco-design/web-react";
 import py1 from "@image/py1.webp";
 import py2 from "@image/py2.webp";
 import py3 from "@image/py3.webp";
 import py4 from "@image/py4.webp";
-
+import result1 from "@image/result1.webp";
+import result2 from "@image/result2.webp";
+import result3 from "@image/result3.webp";
+import result4 from "@image/result4.webp";
+import result5 from "@image/result5.webp";
+import result6 from "@image/result6.webp";
 import tj1a from "@image/tj1a.webp";
 import tj1b from "@image/tj1b.webp";
 import tj2a from "@image/tj2a.webp";
@@ -48,7 +53,10 @@ import oldwomen from "@image/oldwomen.webp";
 import { CarouselHandle } from "@arco-design/web-react/es/Carousel/interface";
 import pen from "@image/pen.webp";
 import eraser from "@image/eraser.webp";
-
+import humanwithhua from "@image/humanwithhua.webp";
+import peise1 from "@image/peise1.webp";
+import peise2 from "@image/peise2.webp";
+import peise4 from "@image/peise4.webp";
 import {
   Sketch,
   Material,
@@ -60,6 +68,7 @@ import {
   Github,
   Chrome,
   hsvaToHex,
+  hsvaToHexa,
 } from "@uiw/react-color";
 import {
   Alpha,
@@ -73,6 +82,7 @@ import {
   EditableInputRGBA,
   EditableInputHSLA,
 } from "@uiw/react-color";
+import { IconLoading } from "@arco-design/web-react/icon";
 
 let template = 0;
 function App(props: { changePage: (num: number, mode?: number) => void }) {
@@ -201,19 +211,17 @@ function Page2(props: {
             color={hsva}
             width={363}
             height={363}
-            onChange={(color) => setHsva({ ...hsva, ...color.hsva })}
-          />
-          {/* <ShadeSlider
-            hsva={hsva}
-            style={{ width: 210, marginTop: 20 }}
-            onChange={(newShade) => {
-              setHsva({ ...hsva, ...newShade });
+            onChange={(color) => {
+              console.log(color);
+              let hsvatemp = color.hsva;
+              hsvatemp.a = alphaValue / 100;
+              setHsva(hsvatemp);
             }}
-          /> */}
+          />
           <div
             className={styles.color}
             style={{
-              background: hsvaToHex(hsva),
+              background: hsvaToHexa(hsva),
             }}
           ></div>
         </Fragment>
@@ -232,14 +240,15 @@ function Page2(props: {
           ref={(reactSketchCanvas) => {
             reactSketchCanvas?.eraseMode(radio === 1);
           }}
-          strokeColor={hsvaToHex(hsva)}
+          strokeColor={hsvaToHexa(hsva)}
           eraserWidth={sizeValue}
           strokeWidth={sizeValue}
           canvasColor="transparent"
           style={{ border: "none" }}
-          backgroundImage={human}
+          // backgroundImage={human}
         />
       </div>
+      <img className={styles.xiangaoo} src={human} alt="" />
       <div
         style={{
           width: 280,
@@ -322,6 +331,7 @@ function Page2(props: {
           className={styles.slider1}
           onChange={(value) => {
             setAlphaValue(value as number);
+            console.log(value);
             setHsva({ ...hsva, a: (value as number) / 100 });
           }}
         ></Slider>
@@ -349,8 +359,41 @@ function Page3(props: {
     false,
     false,
   ]);
+  const [peise, setPeise] = useState(peise1);
+  const [loading, setLoading] = useState<boolean>(false);
+  useEffect(() => {
+    console.log(colorChose);
+    if (colorChose[0]) {
+      setLoading(true);
+      setTimeout(() => {
+        setPeise(peise1);
+
+        setLoading(false);
+      }, 2000);
+    } else if (colorChose[1]) {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        setPeise(peise2);
+      }, 2000);
+    } else if (colorChose[3]) {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        setPeise(peise4);
+      }, 2000);
+    }
+  }, [colorChose]);
   return (
     <div className="App">
+      <Spin
+        style={{ position: "absolute", top: 313, left: 929 }}
+        loading={loading}
+        size={50}
+        icon={<IconLoading />}
+      >
+        <img className={styles.xiangaooo} src={peise} alt="" />
+      </Spin>
       <img style={{ width: "100%", height: "100%" }} src={back3} alt="" />
       <div
         style={{
@@ -494,7 +537,20 @@ function Page4(props: {
   const [radio, setRadio] = useState(0);
   const [alphaValue, setAlphaValue] = useState(50);
   const [sizeValue, setSizeValue] = useState(20);
-  const [hua, setHua] = useState(1);
+  const [hua, setHua] = useState(0);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [result, setResult] = useState<string>(human);
+  useEffect(() => {
+    if (hua === 8) {
+      setLoading(true);
+      setTimeout(() => {
+        setLoading(false);
+        setResult(humanwithhua);
+      }, 2000);
+    } else {
+      setResult(human);
+    }
+  }, [hua]);
   return (
     <div className="App">
       <img style={{ width: "100%", height: "100%" }} src={back4} alt="" />
@@ -585,6 +641,19 @@ function Page4(props: {
           onClick={() => setRadio(1)}
         />
       </div>
+      <Spin
+        loading={loading}
+        size={50}
+        style={{
+          color: "white",
+          position: "absolute",
+          top: 313,
+          left: 929,
+        }}
+        icon={<IconLoading />}
+      >
+        <img className={styles.xiangao} src={result} alt="" />
+      </Spin>
       <div>
         <Slider
           value={alphaValue}
@@ -611,7 +680,15 @@ function Page5(props: {
   changePage: (num: number) => void;
   changeMode: (num: number, mode: number) => void;
 }) {
-  const [chose, setChose] = useState(1);
+  const [chose, setChose] = useState(5);
+  const [results, setResults] = useState<string[]>([
+    result1,
+    result2,
+    result3,
+    result4,
+    result5,
+    result6,
+  ]);
   const styleforimg = [
     {
       top: 272,
@@ -652,19 +729,7 @@ function Page5(props: {
         }}
         onClick={() => props.changeMode(0, 0)}
       ></div>
-      <img
-        className={styles.truth}
-        src={
-          chose === 3 || chose === 4
-            ? py1
-            : chose === 5 || chose === 6
-            ? py3
-            : chose === 2
-            ? py2
-            : py4
-        }
-        alt=""
-      />
+      <img className={styles.truth} src={results[chose - 1]} alt="" />
       <img
         className={styles.backforimg}
         src={backforimg}
@@ -672,12 +737,12 @@ function Page5(props: {
         alt=""
       />
       <div className={styles.imgresults}>
-        <img src={py4} alt="" onClick={() => setChose(1)} />
-        <img src={py2} alt="" onClick={() => setChose(2)} />
-        <img src={py1} alt="" onClick={() => setChose(3)} />
-        <img src={py1} alt="" onClick={() => setChose(4)} />
-        <img src={py3} alt="" onClick={() => setChose(5)} />
-        <img src={py3} alt="" onClick={() => setChose(6)} />
+        <img src={result1} alt="" onClick={() => setChose(1)} />
+        <img src={result2} alt="" onClick={() => setChose(2)} />
+        <img src={result3} alt="" onClick={() => setChose(3)} />
+        <img src={result4} alt="" onClick={() => setChose(4)} />
+        <img src={result5} alt="" onClick={() => setChose(5)} />
+        <img src={result6} alt="" onClick={() => setChose(6)} />
       </div>
     </div>
   );
