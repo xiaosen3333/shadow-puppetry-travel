@@ -42,26 +42,18 @@
 .slider {
   position: absolute;
   width: 240px !important;
-  top: 816px;
+  top: 806px;
   left: 309px;
+  margin: 0px;
   :global {
-    .arco-slider-road::before {
-      background-color: rgb(243, 230, 206);
-      height: 14px;
-      border-radius: 16px;
+    .ant-slider-handle::after {
+      background-color: #a08359;
     }
-    .arco-slider-bar {
-      height: 14px;
-      border-radius: 16px;
-      background-color: rgb(166, 137, 95);
+    .ant-slider-track {
+      border-radius: 7px;
     }
-    .arco-slider-button::after {
-      width: 20px;
-      height: 20px;
-      border: none;
-      background: rgb(160, 131, 89);
-      position: relative;
-      top: -4px;
+    .ant-slider-rail {
+      border-radius: 7px;
     }
   }
 }
@@ -70,7 +62,7 @@
 }
 .slider2 {
   @extend .slider;
-  top: 854px;
+  top: 844px;
 }
 .rainbowcircle {
   width: 200px;
@@ -189,6 +181,15 @@
   top: 313px;
   left: 929px;
   object-fit: cover;
+}
+.undo {
+  position: absolute;
+  font-size: 30px;
+  top: 297px;
+  left: 795px;
+  object-fit: cover;
+  z-index: 100;
+  cursor: pointer;
 }
 .xiangaooo {
   position: absolute;

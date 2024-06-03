@@ -4,8 +4,8 @@ import back2 from "@background/自主创建-色盘.webp";
 import back3 from "@background/自主创建-智能配色.webp";
 import back4 from "@background/自主创建-纹样绘制.webp";
 import back5 from "@background/自主创建-AI优化.webp";
-import { ReactSketchCanvas } from "react-sketch-canvas";
-import { Carousel, Slider, Spin } from "@arco-design/web-react";
+import { ReactSketchCanvas, ReactSketchCanvasRef } from "react-sketch-canvas";
+import { Carousel, Spin } from "@arco-design/web-react";
 import py1 from "@image/py1.webp";
 import py2 from "@image/py2.webp";
 import py3 from "@image/py3.webp";
@@ -57,6 +57,7 @@ import humanwithhua from "@image/humanwithhua.webp";
 import peise1 from "@image/peise1.webp";
 import peise2 from "@image/peise2.webp";
 import peise4 from "@image/peise4.webp";
+import { Slider } from "antd";
 import {
   Sketch,
   Material,
@@ -82,7 +83,7 @@ import {
   EditableInputRGBA,
   EditableInputHSLA,
 } from "@uiw/react-color";
-import { IconLoading } from "@arco-design/web-react/icon";
+import { IconLoading, IconUndo } from "@arco-design/web-react/icon";
 
 let template = 0;
 function App(props: { changePage: (num: number, mode?: number) => void }) {
@@ -201,7 +202,17 @@ function Page2(props: {
   const [alphaValue, setAlphaValue] = useState(50);
   const [sizeValue, setSizeValue] = useState(20);
   const [hsva, setHsva] = useState({ h: 214, s: 43, v: 90, a: 1 });
-
+  const canvasRef = useRef<ReactSketchCanvasRef>(null);
+  useEffect(() => {
+    if (canvasRef.current) {
+      canvasRef.current?.eraseMode(radio === 1);
+    }
+  }, [radio]);
+  const onUndo = () => {
+    if (canvasRef.current) {
+      canvasRef.current?.undo();
+    }
+  };
   return (
     <div className="App">
       <img style={{ width: "100%", height: "100%" }} src={back2} alt="" />
@@ -218,6 +229,21 @@ function Page2(props: {
               setHsva(hsvatemp);
             }}
           />
+          <ShadeSlider
+            hsva={hsva}
+            direction="vertical"
+            style={{
+              width: 16,
+              height: 380,
+              position: "absolute",
+              top: -374,
+              left: -60,
+            }}
+            radius={30}
+            onChange={(newShade) => {
+              setHsva({ ...hsva, ...newShade });
+            }}
+          />
           <div
             className={styles.color}
             style={{
@@ -226,20 +252,9 @@ function Page2(props: {
           ></div>
         </Fragment>
       </div>
-      <div className={styles.colorcards}>
-        <div className={styles.colorcard}></div>
-        <div className={styles.colorcard}></div>
-        <div className={styles.colorcard}></div>
-        <div className={styles.colorcard}></div>
-        <div className={styles.colorcard}></div>
-        <div className={styles.colorcard}></div>
-        <div className={styles.colorcard}></div>
-      </div>
       <div className={styles.drawingboard}>
         <ReactSketchCanvas
-          ref={(reactSketchCanvas) => {
-            reactSketchCanvas?.eraseMode(radio === 1);
-          }}
+          ref={canvasRef}
           strokeColor={hsvaToHexa(hsva)}
           eraserWidth={sizeValue}
           strokeWidth={sizeValue}
@@ -249,6 +264,7 @@ function Page2(props: {
         />
       </div>
       <img className={styles.xiangaoo} src={human} alt="" />
+      <IconUndo className={styles.undo} onClick={onUndo} />
       <div
         style={{
           width: 280,
