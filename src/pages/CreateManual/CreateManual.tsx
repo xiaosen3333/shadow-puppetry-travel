@@ -306,7 +306,7 @@ function Page2(props: {
           left: 256,
           cursor: "pointer",
         }}
-        onClick={() => props.changePage(4)}
+        onClick={() => props.changePage(2)}
       ></div>
       <div>
         <img
@@ -359,7 +359,7 @@ function Page3(props: {
     false,
     false,
   ]);
-  const [peise, setPeise] = useState(peise1);
+  const [peise, setPeise] = useState(human);
   const [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
     console.log(colorChose);
@@ -453,7 +453,7 @@ function Page3(props: {
           left: 256,
           cursor: "pointer",
         }}
-        onClick={() => props.changePage(4)}
+        onClick={() => props.changePage(3)}
       ></div>
       <div className={styles.colorserieses}>
         <div className={styles.colorseries}>
@@ -539,16 +539,16 @@ function Page4(props: {
   const [sizeValue, setSizeValue] = useState(20);
   const [hua, setHua] = useState(0);
   const [loading, setLoading] = useState<boolean>(false);
-  const [result, setResult] = useState<string>(human);
+  const [result, setResult] = useState<string>(peise4);
   useEffect(() => {
     if (hua === 8) {
       setLoading(true);
       setTimeout(() => {
         setLoading(false);
-        setResult(humanwithhua);
+        setResult(result5);
       }, 2000);
     } else {
-      setResult(human);
+      setResult(peise4);
     }
   }, [hua]);
   return (
