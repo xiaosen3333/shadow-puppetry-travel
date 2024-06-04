@@ -369,13 +369,13 @@ function Page3(props: {
   changeMode: (num: number, mode: number) => void;
 }) {
   const [colorChose, setColorChose] = useState<boolean[]>([
+    false,
+    false,
+    false,
     true,
     false,
-    false,
-    false,
-    false,
   ]);
-  const [peise, setPeise] = useState(human);
+  const [peise, setPeise] = useState("");
   const [loading, setLoading] = useState<boolean>(false);
   useEffect(() => {
     console.log(colorChose);
